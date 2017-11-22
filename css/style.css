@@ -1,0 +1,22 @@
+
+
+#snowArea {
+
+}
+
+/* Snow */
+.snow {
+    position: fixed;
+    animation-name: snowFall;
+    /* animation-duration: 4s; */ 
+    z-index: 100;
+}
+
+@keyframes snowFall {
+  0% {
+    top: 0px;
+ }
+ 100% {
+    top: 800px;
+  }
+}
