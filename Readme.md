@@ -12,8 +12,15 @@ sf_
 * PHP
     * Wordpress
 * JS
-* CSS
+* CSS 
 * HTML
+
+## Using Plugin (For now) 
+* Press purple (div) button to hide form  
+* "Up" arrow key to display form 
+* You can use the form to customize the plugin's behaviour 
+* Form fields: Width (how much of the page the plugin takes uo), Fall-speed, Rate
+
 
 ________________________________________________________________________________
 Wordpress Idea - Snowfall (Inspired by PortfolioSite)
@@ -27,3 +34,4 @@ Wordpress Idea - Snowfall (Inspired by PortfolioSite)
 	* Implement size option
 	* Implement rate / frequency option
 	* Distribute plugin
+
