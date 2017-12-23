@@ -1,12 +1,26 @@
 <?php
-function sf_add_scripts(){
-  wp_enqueue_style('sf-main-style', plugins_url(). '/snowfall/css/style.css');
-  wp_register_script('sf-main-script', plugins_url(). '/snowfall/js/main.js', array(), NULL, true);
-  wp_enqueue_script('sf-main-script');
+function sf_add_scripts() {
+    /*
+    wp_enqueue_style('sf-main-style', plugins_url(). '/snowfall/css/style.css');
+    wp_register_script('sf-main-script', plugins_url(). '/snowfall/js/main.js', array(), NULL, true);
+    wp_enqueue_script('sf-main-script');
 
-  $snowfall_custom = array( 'template_url' => get_bloginfo('template_url'), 'plugin_url' => plugins_url() . '/snowfall/' );
-  wp_localize_script( 'sf-main-script', 'snowfall_custom', $snowfall_custom );
+    $snowfall_custom = array( 'template_url' => get_bloginfo('template_url'), 'plugin_url' => plugins_url() . '/snowfall/' );
+    wp_localize_script( 'sf-main-script', 'snowfall_custom', $snowfall_custom );
+    */
 
+    wp_enqueue_style('sf-main-style', plugins_url(). '/snowfall/css/style.css');
+    wp_register_script('sf-main-script', plugins_url(). '/snowfall/js/local.js', array(), NULL, true);
+    wp_enqueue_script('tether-script', plugins_url(). '/snowfall/js/tether.js', array(), NULL, true);
+    wp_enqueue_script('sf-main-script');
+
+    $snowfall_custom = array( 'template_url' => get_bloginfo('template_url'), 'plugin_url' => plugins_url() . '/snowfall/' );
+    wp_localize_script( 'sf-main-script', 'snowfall_custom', $snowfall_custom );
+}
+
+add_action('wp_enqueue_scripts', 'load_js');
+function load_js() {
+    wp_enqueue_script('jquery');
 }
 
 add_action('wp_enqueue_scripts', 'sf_add_scripts');

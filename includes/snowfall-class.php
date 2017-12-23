@@ -30,17 +30,8 @@ class Snowfall_Widget extends WP_Widget {
 		}
 
 		/// Widget Content Output
-
-
-        /* echo '<div id="snowArea"><script src="file-path-to-main.js"></script>
-         Snowing... </div>'; // output may go here
-         */
-		 /*
-         echo '<div id="snowArea"><script src="../../main.js"></script>
-          Snowing... </div>'; // output may go here
-		  */
-		  echo '<div id="snowArea">
-		   Snowing... </div>';
+  		echo '<canvas id="snowArea">
+		   Snowing... </canvas>';
 
 		//echo esc_html__( 'Snowfall', 'sf_domain' );
 		echo $args['after_widget'];
@@ -55,66 +46,11 @@ class Snowfall_Widget extends WP_Widget {
 	 */
 	public function form( $instance ) {
 		/*** The data entered in the following HTML form/s should be sent to JSON file ***/
-		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'Snowfall', 'sf_domain' );
+
 		?>
-		<!--
-		<h3>AJAX POST FORM</h3>
-	    <form id="postForm">
-	      <input type="text" name="name" id="name2">
-	      <input type="submit" value="Submit">
-	  </form> -->
 
-	  <!--
-	  <head>
-		  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-	  </head>
-	  <form>
-    		<input type="text" id="name" name="name">
-    		<button type="submit" id="submit-btn">
-		</form>
-	    <script>
-		/*
-		document.onload = function() {
-	      document.getElementById('postForm').addEventListener('submit', postName);
-
-	      function postName(e){
-	        e.preventDefault();
-			//e.stopImmediatePropagation();
-
-			var name = document.getElementById('name2').value;
-	        var params = "name="+name;
-
-	        var xhr = new XMLHttpRequest();
-	        xhr.open('POST', 'process.php', true);
-	        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-	        xhr.onload = function(){
-	          console.log(this.responseText);
-	        }
-
-	        xhr.send(params);
-	      }
-	  }
-	  *
-
-	  $(document).ready(function() {
-		  $('#submit-btn').on('click', function(e) {
-	    	e.preventDefault();
-	    	if( $('#name').val() ){
-	        	$.ajax({
-	            	url     : 'savejson.php',
-	            	method  : 'post',
-	            	data    : { 'name': $('#name').val() },
-	            		success : function( response ) {
-	                		alert( response );
-	            		}
-	        		});
-	    		}
-			});
-		});
-		*/
-	  </script>
-  		-->
+		<!-- TITLE -->
+	<p>
 
 		<?php
 	}
@@ -131,8 +67,6 @@ class Snowfall_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-
 		return $instance;
 	}
 
